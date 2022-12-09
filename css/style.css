@@ -9,7 +9,7 @@
 
     
 }
-body.dark{
+body.white{
     
     --bg-black-900: #f2f2fc;
     --bg-black-100: #fdf9ff;
@@ -553,6 +553,121 @@ h3.my-profession{
     font-size: 16px;
     color: var(--text-black-700);
     line-height: 25px;
+}
+.service .container-skill{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+}
+.service .container-skill .card{
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: var(--bg-black-100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+
+}
+.service .container-skill .card .percent{
+    
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+.service .container-skill .card .percent svg{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    transform: rotate(270deg);
+}
+.service .container-skill .card .percent svg circle{
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 2;
+    stroke: #191919;
+    transform: translate(5px, 5px)
+}
+.service .container-skill .card .percent svg circle:nth-child(2){
+    stroke: var(--skin-color);
+    stroke-dasharray: 470;
+    stroke-dashoffset: calc(440 - (400 * var(--num)) / 100);
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 1.7s;
+    opacity: 0;
+}
+.skill-heading{
+    color: var(--text-black-900);
+    margin-bottom: 30px;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+.dot{
+    position: absolute;
+    inset: 5px;
+    z-index: 10;
+    transform: rotate(calc(3.6deg * var(--num) ));
+    animation: animateDot 2s linear forwards;
+}
+@keyframes animateDot {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+.dot::before{
+    content: ' ';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--skin-color);
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px var(--skin-color), 
+    0 0 30px var(--skin-color);
+}
+.number{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2s;
+    opacity: 0;
+}
+.number h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-black-900);
+    font-size: 2.5em;
+}
+.number h2 span{
+    font-weight: 300;
+    color: var(--text-black-700);
+    font-size: 0.5em;
+}
+.number p{
+    font-weight: 300;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-black-700);
 }
 /* portfolio */
 .portfolio .container{
